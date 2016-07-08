@@ -435,7 +435,7 @@
 // Hooke's law says:    force = k * distance
 // Bernoulli's principle says:  v ^ 2 / 2 + g . h + pressure / density = constant
 // so: v ^ 2 is proportional to number of steps we advance the extruder
-#define ADVANCE
+//#define ADVANCE
 
 #if ENABLED(ADVANCE)
   #define EXTRUDER_ADVANCE_K .001
