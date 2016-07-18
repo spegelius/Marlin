@@ -529,12 +529,12 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
   #define MESH_MAX_Y (Y_MAX_POS - (MESH_MIN_Y))
   #define MESH_NUM_X_POINTS 3  // Don't use more than 7 points per axis, implementation limited.
   #define MESH_NUM_Y_POINTS 3
-  #define MESH_HOME_SEARCH_Z 139  // Z after Home, bed somewhere below but above 0.0.
+  #define MESH_HOME_SEARCH_Z 4  // Z after Home, bed somewhere below but above 0.0.
 
   #define MANUAL_BED_LEVELING  // Add display menu option for bed leveling.
 
   #if ENABLED(MANUAL_BED_LEVELING)
-    #define MBL_Z_STEP 0.025  // Step size while manually probing Z axis.
+    #define MBL_Z_STEP 0.05  // Step size while manually probing Z axis.
   #endif  // MANUAL_BED_LEVELING
 
 #endif  // MESH_BED_LEVELING

@@ -2861,10 +2861,10 @@ inline void gcode_G28() {
   // For mesh leveling move back to Z=0
   #if ENABLED(MESH_BED_LEVELING)
     if (mbl_was_active && home_all_axis) {
-      current_position[Z_AXIS] = MESH_HOME_SEARCH_Z;
+      current_position[Z_AXIS] = base_home_pos(Z_AXIS) + home_offset[Z_AXIS] + MESH_HOME_SEARCH_Z;
       sync_plan_position();
       mbl.active = 1;
-      current_position[Z_AXIS] = 0.0;
+      current_position[Z_AXIS] = base_home_pos(Z_AXIS) + home_offset[Z_AXIS];
       set_destination_to_current();
       feedrate = homing_feedrate[Z_AXIS];
       line_to_destination();
