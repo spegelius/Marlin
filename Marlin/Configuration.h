@@ -264,9 +264,15 @@
   //#define  DEFAULT_Kd 440
 
   // J-head
-  #define  DEFAULT_Kp 27.51
-  #define  DEFAULT_Ki 3.04
-  #define  DEFAULT_Kd 62.19
+  //#define  DEFAULT_Kp 27.51
+  //#define  DEFAULT_Ki 3.04
+  //#define  DEFAULT_Kd 62.19
+
+  // E3Dv6
+  #define  DEFAULT_Kp 30.35
+  #define  DEFAULT_Ki 2.81
+  #define  DEFAULT_Kd 82.05
+
 #endif // PIDTEMP
 
 //===========================================================================
@@ -299,9 +305,14 @@
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define  DEFAULT_bedKp 10.00
-  #define  DEFAULT_bedKi .023
-  #define  DEFAULT_bedKd 305.4
+  //#define  DEFAULT_bedKp 10.00
+  //#define  DEFAULT_bedKi .023
+  //#define  DEFAULT_bedKd 305.4
+
+  // MK3 alu + 100k 3950 resistor
+  #define  DEFAULT_bedKp 545.62
+  #define  DEFAULT_bedKi 82.84
+  #define  DEFAULT_bedKd 898.43
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune
@@ -501,7 +512,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 #define Z_MIN_POS 0
 #define X_MAX_POS 90
 #define Y_MAX_POS 90
-#define Z_MAX_POS 90
+#define Z_MAX_POS 110
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
