@@ -63,6 +63,7 @@
 #include "temperature.h"
 #include "ultralcd.h"
 #include "language.h"
+#include "Hysteresis.h"
 
 #include "Marlin.h"
 
@@ -539,6 +540,10 @@ void Planner::check_axes_activity() {
   void Planner::buffer_line(const float& x, const float& y, const float& z, const float& e, float fr_mm_s, const uint8_t extruder)
 #endif  // AUTO_BED_LEVELING_FEATURE
 {
+
+  // Hysteresis support
+  hysteresis.InsertCorrection(x,y,z,e);
+
   // Calculate the buffer head after we push this byte
   int next_buffer_head = next_block_index(block_buffer_head);
 

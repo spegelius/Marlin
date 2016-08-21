@@ -237,6 +237,13 @@ class Planner {
 
     #endif // AUTO_BED_LEVELING_FEATURE || MESH_BED_LEVELING
 
+    static long get_position(uint8_t axis) {
+      return position[axis];
+    }
+
+    static void set_axis_position(uint8_t axis, float val) {
+      position[axis] = lround(val);
+    }
     /**
      * Set the E position (mm) of the planner (and the E stepper)
      */

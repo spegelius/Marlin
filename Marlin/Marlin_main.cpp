@@ -62,6 +62,7 @@
 #include "nozzle.h"
 #include "duration_t.h"
 #include "types.h"
+#include "Hysteresis.h"
 
 #if ENABLED(USE_WATCHDOG)
   #include "watchdog.h"
@@ -5131,6 +5132,17 @@ inline void gcode_M92() {
   planner.refresh_positioning();
 }
 
+inline void gcode_M98() {
+  hysteresis.ReportToSerial();
+}
+
+inline void gcode_M99() {
+  if(code_seen('X')) hysteresis.SetAxis( X_AXIS, code_value_float() );
+  if(code_seen('Y')) hysteresis.SetAxis( Y_AXIS, code_value_float() );
+  if(code_seen('Z')) hysteresis.SetAxis( Z_AXIS, code_value_float() );
+  if(code_seen('E')) hysteresis.SetAxis( E_AXIS, code_value_float() );
+}
+
 /**
  * Output the current position to serial
  */
@@ -7199,6 +7211,14 @@ void process_next_command() {
 
       case 77: // Stop print timer
         gcode_M77();
+        break;
+
+      case 98: // Get hysteresis
+        gcode_M98();
+        break;
+
+      case 99: // Set hysteresis
+        gcode_M99();
         break;
 
       #if ENABLED(PRINTCOUNTER)
