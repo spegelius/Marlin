@@ -616,7 +616,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS 142
 #define Y_MAX_POS 142
-#define Z_MAX_POS 143.2
+#define Z_MAX_POS 145
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
@@ -755,7 +755,7 @@
 
 // default settings
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80,80,150}  // default steps per unit for Ultimaker
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {160,160,80,150}  // default steps per unit for Ultimaker
 #define DEFAULT_MAX_FEEDRATE          {250, 250, 20, 40}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {3000,3000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 
