@@ -627,7 +627,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS 90
 #define Y_MAX_POS 90
-#define Z_MAX_POS 110
+#define Z_MAX_POS 105
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
@@ -757,7 +757,7 @@
 
 // Homing speeds (mm/m)
 #define HOMING_FEEDRATE_XY (70*60)
-#define HOMING_FEEDRATE_Z  (30*60)
+#define HOMING_FEEDRATE_Z  (20*60)
 
 //
 // MOVEMENT SETTINGS
@@ -766,7 +766,7 @@
 
 // default settings
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {120,120,600,104}  // default steps per unit for Ultimaker
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {130.4,130.4,1180,104}  // default steps per unit for Ultimaker
 #define DEFAULT_MAX_FEEDRATE          {250, 250, 30, 40}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {3000,3000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 
