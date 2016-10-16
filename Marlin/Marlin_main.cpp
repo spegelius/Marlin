@@ -7605,6 +7605,20 @@ void process_next_command() {
           break;
       #endif // DUAL_X_CARRIAGE
 
+      #if FAN2_PIN > -1
+        case 806: //M806 Fan2 On
+          if (code_seen('S')){
+            analogWrite(7, constrain(code_value_int(),0,255));
+            SERIAL_ECHOPAIR("Fan2 set to ", constrain(code_value_int(),0,255)); SERIAL_EOL;
+            } //D7 is fan2_pin as in pins_MEGATRONICS_3.h
+          else {
+            analogWrite(7, 255);}
+          break;
+        case 807: //M807 Fan2 Off
+            analogWrite(7, 0);
+          break;
+      #endif //FAN2_PIN
+  
       #if ENABLED(LIN_ADVANCE)
         case 905: // M905 Set advance factor.
           gcode_M905();
