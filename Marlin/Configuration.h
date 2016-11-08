@@ -625,8 +625,8 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 90
-#define Y_MAX_POS 90
+#define X_MAX_POS 120
+#define Y_MAX_POS 93
 #define Z_MAX_POS 116.5
 
 //===========================================================================
@@ -766,12 +766,12 @@
 
 // default settings
 // 1180 for Z gears
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {138/2,138/2,4269.6/2,104}  // default steps per unit for Ultimaker
-#define DEFAULT_MAX_FEEDRATE          {250, 250, 5, 40}    // (mm/sec)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {160/2,160/2,4269.6/2,104}  // default steps per unit for Ultimaker
+#define DEFAULT_MAX_FEEDRATE          {250, 250, 6, 60}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {9000,9000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 
 #define DEFAULT_ACCELERATION          1000    // X, Y, Z and E acceleration in mm/s^2 for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  1000    // E acceleration in mm/s^2 for retracts
+#define DEFAULT_RETRACT_ACCELERATION  2000    // E acceleration in mm/s^2 for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration in mm/s^2 for travel (non printing) moves
 
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
