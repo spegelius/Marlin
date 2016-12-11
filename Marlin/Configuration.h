@@ -627,7 +627,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS 120
 #define Y_MAX_POS 93
-#define Z_MAX_POS 116.5
+#define Z_MAX_POS 420
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
