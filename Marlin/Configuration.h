@@ -552,7 +552,7 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 150, 150, 2, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 150, 150, 5, 25 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -805,7 +805,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS 120
 #define Y_MAX_POS 90
-#define Z_MAX_POS 413
+#define Z_MAX_POS 415
 
 /**
  * Software Endstops
