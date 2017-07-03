@@ -625,7 +625,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160/2, 160/2, 4269.6/2, 159 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160/2, 160/2, 4269.6/2, 152 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1037,7 +1037,7 @@
 #if ENABLED(AUTO_BED_LEVELING_LINEAR) || ENABLED(AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 3
+  #define GRID_MAX_POINTS_X 4
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
@@ -1048,7 +1048,7 @@
   #define LEFT_PROBE_BED_POSITION 30
   #define RIGHT_PROBE_BED_POSITION (X_MAX_POS-10)
   #define FRONT_PROBE_BED_POSITION 30
-  #define BACK_PROBE_BED_POSITION 200
+  #define BACK_PROBE_BED_POSITION 190
 
   // Probe along the Y axis, advancing X after each column
   //#define PROBE_Y_FIRST
