@@ -502,7 +502,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160/2, 160/2, 4269.6/2, 159 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160/2, 160/2, 4269.6/2, 152 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -761,8 +761,8 @@
 
 #if ENABLED(MESH_BED_LEVELING)
   #define MESH_INSET 20        // Mesh inset margin on print area
-  #define MESH_NUM_X_POINTS 3  // Don't use more than 7 points per axis, implementation limited.
-  #define MESH_NUM_Y_POINTS 3
+  #define MESH_NUM_X_POINTS 4  // Don't use more than 7 points per axis, implementation limited.
+  #define MESH_NUM_Y_POINTS 4
   #define MESH_HOME_SEARCH_Z 4  // Z after Home, bed somewhere below but above 0.0.
 
   //#define MESH_G28_REST_ORIGIN // After homing all axes ('G28' or 'G28 XYZ') rest at origin [0,0,0]
@@ -820,14 +820,14 @@
 #if ENABLED(AUTO_BED_LEVELING_LINEAR) || ENABLED(AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define ABL_GRID_POINTS_X 3
+  #define ABL_GRID_POINTS_X 4
   #define ABL_GRID_POINTS_Y ABL_GRID_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
   #define LEFT_PROBE_BED_POSITION 30
   #define RIGHT_PROBE_BED_POSITION (X_MAX_POS-10)
   #define FRONT_PROBE_BED_POSITION 30
-  #define BACK_PROBE_BED_POSITION 200
+  #define BACK_PROBE_BED_POSITION 190
 
   // The Z probe minimum outer margin (to validate G29 parameters).
   #define MIN_PROBE_EDGE 10
