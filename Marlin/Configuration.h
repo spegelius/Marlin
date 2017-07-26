@@ -939,8 +939,8 @@
   // Set the boundaries for probing (where the probe can reach).
   #define LEFT_PROBE_BED_POSITION 28
   #define RIGHT_PROBE_BED_POSITION 140
-  #define FRONT_PROBE_BED_POSITION 2
-  #define BACK_PROBE_BED_POSITION 140
+  #define FRONT_PROBE_BED_POSITION 12
+  #define BACK_PROBE_BED_POSITION 130
 
   // The Z probe minimum outer margin (to validate G29 parameters).
   #define MIN_PROBE_EDGE 0
