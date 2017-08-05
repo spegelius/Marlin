@@ -632,7 +632,7 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 150, 150, 5, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 150, 150, 7, 150 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -664,8 +664,8 @@
  */
 #define DEFAULT_XJERK                 15.0
 #define DEFAULT_YJERK                 15.0
-#define DEFAULT_ZJERK                  0.4
-#define DEFAULT_EJERK                  5.0
+#define DEFAULT_ZJERK                  0.5
+#define DEFAULT_EJERK                  10
 
 /**
  * S-Curve Acceleration
@@ -1046,9 +1046,9 @@
   //#define FRONT_PROBE_BED_POSITION MIN_PROBE_EDGE
   //#define BACK_PROBE_BED_POSITION (Y_BED_SIZE - MIN_PROBE_EDGE)
   #define LEFT_PROBE_BED_POSITION 30
-  #define RIGHT_PROBE_BED_POSITION (X_MAX_POS-10)
+  #define RIGHT_PROBE_BED_POSITION (X_MAX_POS-30)
   #define FRONT_PROBE_BED_POSITION 30
-  #define BACK_PROBE_BED_POSITION 190
+  #define BACK_PROBE_BED_POSITION (Y_MAX_POS-30)
 
   // Probe along the Y axis, advancing X after each column
   //#define PROBE_Y_FIRST
