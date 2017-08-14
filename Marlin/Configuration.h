@@ -120,7 +120,7 @@
 // The following define selects which electronics board you have.
 // Please choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_MEGATRONICS_3
+  #define MOTHERBOARD BOARD_MEGATRONICS_31
 #endif
 
 // Optional custom name for your RepStrap or other custom machine
@@ -135,7 +135,7 @@
 
 // This defines the number of extruders
 // :[1, 2, 3, 4, 5]
-#define EXTRUDERS 2
+#define EXTRUDERS 4
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
 #define DEFAULT_NOMINAL_FILAMENT_DIA 3.0
@@ -153,13 +153,13 @@
  * This option only allows the multiplexer to switch on tool-change.
  * Additional options to configure custom E moves are pending.
  */
-//#define MK2_MULTIPLEXER
+#define MK2_MULTIPLEXER
 #if ENABLED(MK2_MULTIPLEXER)
   // Override the default DIO selector pins here, if needed.
   // Some pins files may provide defaults for these pins.
-  //#define E_MUX0_PIN 40  // Always Required
-  //#define E_MUX1_PIN 42  // Needed for 3 to 8 steppers
-  //#define E_MUX2_PIN 44  // Needed for 5 to 8 steppers
+  #define E_MUX0_PIN 46  // Always Required
+  #define E_MUX1_PIN 47  // Needed for 3 to 8 steppers
+  #define E_MUX2_PIN 48  // Needed for 5 to 8 steppers
 #endif
 
 // A dual extruder that uses a single stepper motor
@@ -552,14 +552,14 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 80, 1000, 1000 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 80, 1000, 1000, 1000, 1000 }
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 250, 250, 20, 100, 100 }
+#define DEFAULT_MAX_FEEDRATE          { 250, 250, 20, 100, 100, 100, 100 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -567,7 +567,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 6500, 6500 }
+#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 6500, 6500, 6500, 6500 }
 
 /**
  * Default Acceleration (change/s) change = mm/s
@@ -766,7 +766,7 @@
 // @section extruder
 
 #define DISABLE_E false // For all extruders
-#define DISABLE_INACTIVE_EXTRUDER true // Keep only the active extruder enabled.
+#define DISABLE_INACTIVE_EXTRUDER false // Keep only the active extruder enabled.
 
 // @section machine
 
@@ -782,9 +782,9 @@
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
 #define INVERT_E0_DIR false
-#define INVERT_E1_DIR false
+#define INVERT_E1_DIR true
 #define INVERT_E2_DIR false
-#define INVERT_E3_DIR false
+#define INVERT_E3_DIR true
 #define INVERT_E4_DIR false
 
 // @section homing
