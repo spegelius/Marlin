@@ -78,6 +78,25 @@
 #define E0_DIR_PIN         27
 #define E0_ENABLE_PIN      29
 
+#if ENABLED(MK2_MULTIPLEXER)
+#define E0_STEP_PIN        28
+#define E0_DIR_PIN         27
+#define E0_ENABLE_PIN      29
+
+#define E1_STEP_PIN        28
+#define E1_DIR_PIN         27
+#define E1_ENABLE_PIN      29
+
+#define E2_STEP_PIN        28
+#define E2_DIR_PIN         27
+#define E2_ENABLE_PIN      29
+
+#define E3_STEP_PIN        28
+#define E3_DIR_PIN         27
+#define E3_ENABLE_PIN      29
+
+#else
+
 #define E1_STEP_PIN        25
 #define E1_DIR_PIN         24
 #define E1_ENABLE_PIN      26
@@ -85,6 +104,8 @@
 #define E2_STEP_PIN        22
 #define E2_DIR_PIN         60
 #define E2_ENABLE_PIN      23
+
+#endif
 
 //
 // Temperature Sensors

@@ -10083,9 +10083,26 @@ inline void gcode_M502() {
   inline void select_multiplexed_stepper(const uint8_t e) {
     stepper.synchronize();
     disable_e_steppers();
-    WRITE(E_MUX0_PIN, TEST(e, 0) ? HIGH : LOW);
-    WRITE(E_MUX1_PIN, TEST(e, 1) ? HIGH : LOW);
-    WRITE(E_MUX2_PIN, TEST(e, 2) ? HIGH : LOW);
+    //WRITE(E_MUX0_PIN, TEST(e, 0) ? HIGH : LOW);
+    //WRITE(E_MUX1_PIN, TEST(e, 1) ? HIGH : LOW);
+    //WRITE(E_MUX2_PIN, TEST(e, 2) ? HIGH : LOW);
+    if (e == 0) {
+      WRITE(E_MUX0_PIN, HIGH);
+      WRITE(E_MUX1_PIN, HIGH);
+      WRITE(E_MUX2_PIN, HIGH);
+    } else if (e == 1) {
+      WRITE(E_MUX0_PIN, LOW);
+      WRITE(E_MUX1_PIN, HIGH);
+      WRITE(E_MUX2_PIN, HIGH);
+    } else if (e == 2) {
+      WRITE(E_MUX0_PIN, LOW);
+      WRITE(E_MUX1_PIN, LOW);
+      WRITE(E_MUX2_PIN, HIGH);
+    } else if (e == 3) {
+      WRITE(E_MUX0_PIN, LOW);
+      WRITE(E_MUX1_PIN, LOW);
+      WRITE(E_MUX2_PIN, LOW);
+    }
     safe_delay(100);
   }
 
@@ -10094,7 +10111,7 @@ inline void gcode_M502() {
    */
   inline void gcode_M702() {
     for (uint8_t s = 0; s < E_STEPPERS; s++) {
-      select_multiplexed_stepper(e);
+      select_multiplexed_stepper(s);
       // TODO: standard unload filament function
       // MK2 firmware behavior:
       //  - Make sure temperature is high enough
