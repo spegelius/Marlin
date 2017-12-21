@@ -129,7 +129,7 @@
 
 // Define this to set a unique identifier for this printer, (Used by some programs to differentiate between machines)
 // You can use an online service to generate a random UUID. (eg http://www.uuidgenerator.net/version4)
-//#define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
+#define MACHINE_UUID "82e129cf-3fa8-43a3-98c0-3b7f9d544fd5"
 
 // @section extruder
 
@@ -553,7 +553,8 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 80, 1000, 1000, 1000, 1000 }
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 80, 1000, 1000, 1000, 1000 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 80, 500, 500, 500, 500 }
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 80, 1000, 1000, 1000, 1000 }
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 640, 640, 80, 1000, 1000, 1000, 1000 }
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 320, 320, 80, 1000, 1000, 1000, 1000 }
 
@@ -784,10 +785,10 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
-#define INVERT_E1_DIR true
-#define INVERT_E2_DIR false
-#define INVERT_E3_DIR true
+#define INVERT_E0_DIR true
+#define INVERT_E1_DIR false
+#define INVERT_E2_DIR true
+#define INVERT_E3_DIR false
 #define INVERT_E4_DIR false
 
 // @section homing
