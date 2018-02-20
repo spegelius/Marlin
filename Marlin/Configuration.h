@@ -381,11 +381,15 @@
   //#define  DEFAULT_Kd 93.40
 
   // Prometheus v2
-  #define  DEFAULT_Kp 17.86
-  #define  DEFAULT_Ki 1.71
-  #define  DEFAULT_Kd 46.54
+  //#define  DEFAULT_Kp 17.86
+  //#define  DEFAULT_Ki 1.71
+  //#define  DEFAULT_Kd 46.54
 
-
+  // Prometheus v2 with 40mm fan
+  #define  DEFAULT_Kp 27.73
+  #define  DEFAULT_Ki 3.35
+  #define  DEFAULT_Kd 57.36
+  
 #endif // PIDTEMP
 
 //===========================================================================
