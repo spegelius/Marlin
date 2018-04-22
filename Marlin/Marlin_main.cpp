@@ -10104,7 +10104,7 @@ inline void gcode_M502() {
       WRITE(E_MUX1_PIN, LOW);
       WRITE(E_MUX2_PIN, LOW);
     }
-    safe_delay(100);
+    safe_delay(300);
   }
 
   /**
