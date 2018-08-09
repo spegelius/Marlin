@@ -584,8 +584,8 @@
  */
 #define DEFAULT_XJERK                 10.0
 #define DEFAULT_YJERK                 10.0
-#define DEFAULT_ZJERK                  0.5
-#define DEFAULT_EJERK                  5
+#define DEFAULT_ZJERK                  0.6
+#define DEFAULT_EJERK                  10
 
 //===========================================================================
 //============================= Z Probe Options =============================
