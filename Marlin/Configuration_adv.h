@@ -74,8 +74,8 @@
  * THERMAL_PROTECTION_HYSTERESIS and/or THERMAL_PROTECTION_PERIOD
  */
 #if ENABLED(THERMAL_PROTECTION_HOTENDS)
-  #define THERMAL_PROTECTION_PERIOD 40        // Seconds
-  #define THERMAL_PROTECTION_HYSTERESIS 4     // Degrees Celsius
+  #define THERMAL_PROTECTION_PERIOD 50        // Seconds
+  #define THERMAL_PROTECTION_HYSTERESIS 6     // Degrees Celsius
 
   //#define ADAPTIVE_FAN_SLOWING              // Slow part cooling fan if temperature drops
   #if BOTH(ADAPTIVE_FAN_SLOWING, PIDTEMP)
@@ -94,7 +94,7 @@
    * and/or decrease WATCH_TEMP_INCREASE. WATCH_TEMP_INCREASE should not be set
    * below 2.
    */
-  #define WATCH_TEMP_PERIOD 20                // Seconds
+  #define WATCH_TEMP_PERIOD 40                // Seconds
   #define WATCH_TEMP_INCREASE 2               // Degrees Celsius
 #endif
 
@@ -102,13 +102,13 @@
  * Thermal Protection parameters for the bed are just as above for hotends.
  */
 #if ENABLED(THERMAL_PROTECTION_BED)
-  #define THERMAL_PROTECTION_BED_PERIOD 20    // Seconds
-  #define THERMAL_PROTECTION_BED_HYSTERESIS 2 // Degrees Celsius
+  #define THERMAL_PROTECTION_BED_PERIOD 110    // Seconds
+  #define THERMAL_PROTECTION_BED_HYSTERESIS 4 // Degrees Celsius
 
   /**
    * As described above, except for the bed (M140/M190/M303).
    */
-  #define WATCH_BED_TEMP_PERIOD 60                // Seconds
+  #define WATCH_BED_TEMP_PERIOD 100                // Seconds
   #define WATCH_BED_TEMP_INCREASE 2               // Degrees Celsius
 #endif
 
@@ -224,7 +224,7 @@
 // When first starting the main fan, run it at full speed for the
 // given number of milliseconds.  This gets the fan spinning reliably
 // before setting a PWM value. (Does not work with software PWM for fan on Sanguinololu)
-//#define FAN_KICKSTART_TIME 100
+#define FAN_KICKSTART_TIME 200
 
 /**
  * PWM Fan Scaling
@@ -455,8 +455,8 @@
 #define Y_HOME_BUMP_MM 5
 #define Z_HOME_BUMP_MM 2
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
-//#define QUICK_HOME                     // If homing includes X and Y, do a diagonal move initially
-//#define HOMING_BACKOFF_MM { 2, 2, 2 }  // (mm) Move away from the endstops after homing
+#define QUICK_HOME                     // If homing includes X and Y, do a diagonal move initially
+#define HOMING_BACKOFF_MM { 2, 2, 2 }  // (mm) Move away from the endstops after homing
 
 // When G28 is called, this option will make Y home before X
 //#define HOME_Y_BEFORE_X
@@ -514,8 +514,11 @@
 
 // @section lcd
 
-#if ENABLED(ULTIPANEL)
+#if EITHER(ULTIPANEL, EXTENSIBLE_UI)
   #define MANUAL_FEEDRATE {50*60, 50*60, 4*60, 60} // Feedrates for manual moves along X, Y, Z, E from panel
+#endif
+
+#if ENABLED(ULTIPANEL)
   #define MANUAL_E_MOVES_RELATIVE // Show LCD extruder moves as relative rather than absolute positions
   #define ULTIPANEL_FEEDMULTIPLY  // Comment to disable setting feedrate multiplier via encoder
 #endif
@@ -670,9 +673,10 @@
 //#define DIGIPOT_MOTOR_CURRENT { 135,135,135,135,135 }   // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
 //#define DAC_MOTOR_CURRENT_DEFAULT { 70, 80, 90, 80 }    // Default drive percent - X, Y, Z, E axis
 
-// Use an I2C based DIGIPOT (e.g., Azteeg X3 Pro)
-//#define DIGIPOT_I2C
-#if ENABLED(DIGIPOT_I2C) && !defined(DIGIPOT_I2C_ADDRESS_A)
+// Uncomment to enable an I2C based DIGIPOT like on the Azteeg X3 Pro
+#define DIGIPOT_I2C
+
+#if ENABLED(DIGIPOT_I2C) && !defined(DIGIPOT_I2C_ADDRESS_A)  // Default to settings in pins_XXXX.h files
   /**
    * Common slave addresses:
    *
@@ -688,10 +692,10 @@
 #endif
 
 //#define DIGIPOT_MCP4018          // Requires library from https://github.com/stawel/SlowSoftI2CMaster
-#define DIGIPOT_I2C_NUM_CHANNELS 8 // 5DPRINT: 4     AZTEEG_X3_PRO: 8     MKS SBASE: 5
+#define DIGIPOT_I2C_NUM_CHANNELS 5 // 5DPRINT: 4     AZTEEG_X3_PRO: 8     MKS SBASE: 5
 // Actual motor currents in Amps. The number of entries must match DIGIPOT_I2C_NUM_CHANNELS.
 // These correspond to the physical drivers, so be mindful if the order is changed.
-#define DIGIPOT_I2C_MOTOR_CURRENTS { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }  //  AZTEEG_X3_PRO
+#define DIGIPOT_I2C_MOTOR_CURRENTS { 0.85, 0.85, 0.9, 1, 1 }  //  MKS SBASE: 5
 
 //===========================================================================
 //=============================Additional Features===========================
@@ -995,18 +999,18 @@
  *
  * Warning: Does not respect endstops!
  */
-//#define BABYSTEPPING
+#define BABYSTEPPING
 #if ENABLED(BABYSTEPPING)
   //#define BABYSTEP_WITHOUT_HOMING
-  //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
+  #define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
   #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
-  #define BABYSTEP_MULTIPLICATOR  1         // Babysteps are very small. Increase for faster motion.
+  #define BABYSTEP_MULTIPLICATOR  5         // Babysteps are very small. Increase for faster motion.
 
-  //#define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
+  #define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
   #if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING)
     #define DOUBLECLICK_MAX_INTERVAL 1250   // Maximum interval between clicks, in milliseconds.
                                             // Note: Extra time may be added to mitigate controller latency.
-    #define BABYSTEP_ALWAYS_AVAILABLE     // Allow babystepping at all times (not just during movement).
+    //#define BABYSTEP_ALWAYS_AVAILABLE     // Allow babystepping at all times (not just during movement).
     //#define MOVE_Z_WHEN_IDLE              // Jump to the move Z menu on doubleclick when printer is idle.
     #if ENABLED(MOVE_Z_WHEN_IDLE)
       #define MOVE_Z_IDLE_MULTIPLICATOR 1   // Multiply 1mm by this factor for the move step size.
@@ -1040,7 +1044,7 @@
  * See http://marlinfw.org/docs/features/lin_advance.html for full instructions.
  * Mention @Sebastianv650 on GitHub to alert the author of any issues.
  */
-//#define LIN_ADVANCE
+#define LIN_ADVANCE
 #if ENABLED(LIN_ADVANCE)
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
   #define LIN_ADVANCE_K 0.22    // Unit: mm compression per 1mm/s extruder speed
@@ -1055,6 +1059,10 @@
   //#define MESH_MIN_Y MESH_INSET
   //#define MESH_MAX_X X_BED_SIZE - (MESH_INSET)
   //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
+  #define MESH_MIN_X 65
+  #define MESH_MAX_X 250
+  #define MESH_MIN_Y 85
+  #define MESH_MAX_Y 275
 #endif
 
 /**
@@ -1308,23 +1316,23 @@
  * Requires NOZZLE_PARK_FEATURE.
  * This feature is required for the default FILAMENT_RUNOUT_SCRIPT.
  */
-//#define ADVANCED_PAUSE_FEATURE
+#define ADVANCED_PAUSE_FEATURE
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
   #define PAUSE_PARK_RETRACT_FEEDRATE         60  // (mm/s) Initial retract feedrate.
-  #define PAUSE_PARK_RETRACT_LENGTH            2  // (mm) Initial retract.
+  #define PAUSE_PARK_RETRACT_LENGTH           10  // (mm) Initial retract.
                                                   // This short retract is done immediately, before parking the nozzle.
   #define FILAMENT_CHANGE_UNLOAD_FEEDRATE     10  // (mm/s) Unload filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_UNLOAD_ACCEL        25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-  #define FILAMENT_CHANGE_UNLOAD_LENGTH      100  // (mm) The length of filament for a complete unload.
+  #define FILAMENT_CHANGE_UNLOAD_LENGTH      400  // (mm) The length of filament for a complete unload.
                                                   //   For Bowden, the full length of the tube and nozzle.
                                                   //   For direct drive, the full length of the nozzle.
                                                   //   Set to 0 for manual unloading.
   #define FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE   6  // (mm/s) Slow move when starting load.
-  #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH     0  // (mm) Slow length, to allow time to insert material.
+  #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH    20  // (mm) Slow length, to allow time to insert material.
                                                   // 0 to disable start loading and skip to fast load only
   #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE   6  // (mm/s) Load filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_FAST_LOAD_ACCEL     25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH     0  // (mm) Load length of filament, from extruder gear to nozzle.
+  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH   380  // (mm) Load length of filament, from extruder gear to nozzle.
                                                   //   For Bowden, the full length of the tube and nozzle.
                                                   //   For direct drive, the full length of the nozzle.
   //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
@@ -1344,10 +1352,10 @@
   #define FILAMENT_CHANGE_ALERT_BEEPS         10  // Number of alert beeps to play when a response is needed.
   #define PAUSE_PARK_NO_STEPPER_TIMEOUT           // Enable for XYZ steppers to stay powered on during filament change.
 
-  //#define PARK_HEAD_ON_PAUSE                    // Park the nozzle during pause and filament change.
+  #define PARK_HEAD_ON_PAUSE                    // Park the nozzle during pause and filament change.
   //#define HOME_BEFORE_FILAMENT_CHANGE           // Ensure homing has been completed prior to parking for filament change
 
-  //#define FILAMENT_LOAD_UNLOAD_GCODES           // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu.
+  #define FILAMENT_LOAD_UNLOAD_GCODES           // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu.
   //#define FILAMENT_UNLOAD_ALL_EXTRUDERS         // Allow M702 to unload all extruders above a minimum target temp (as set by M302)
 #endif
 
