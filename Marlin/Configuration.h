@@ -616,7 +616,10 @@
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 442 }
 
 // 0.9 degree motors
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 400, 442 }
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 400, 442 }
+
+// single z
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 1000, 442 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1468,13 +1471,13 @@
 // This option overrides the default number of encoder pulses needed to
 // produce one step. Should be increased for high-resolution encoders.
 //
-#define ENCODER_PULSES_PER_STEP 1
+#define ENCODER_PULSES_PER_STEP 3
 
 //
 // Use this option to override the number of step signals required to
 // move between next/prev menu items.
 //
-#define ENCODER_STEPS_PER_MENU_ITEM 4
+#define ENCODER_STEPS_PER_MENU_ITEM 2
 
 /**
  * Encoder Direction Options
