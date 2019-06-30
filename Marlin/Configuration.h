@@ -626,7 +626,7 @@
  */
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.5, 80.2, 1066.67, 144.8 }
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 161, 80.2, 1066.67, 144.8 }
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 161, 161, 2*1066.67, 144.8 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 2*1066.67, 140 }
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 161, 80.2, 1066.67, 289.6 }
 
 /**
@@ -652,9 +652,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          500    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION          800    // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  2000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION   1200    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk (mm/s)
@@ -667,7 +667,7 @@
 #define DEFAULT_XJERK                 10.0
 #define DEFAULT_YJERK                 10.0
 #define DEFAULT_ZJERK                  0.5
-#define DEFAULT_EJERK                  5
+#define DEFAULT_EJERK                  7
 
 /**
  * S-Curve Acceleration
