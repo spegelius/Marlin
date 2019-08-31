@@ -645,7 +645,6 @@
 
 // @section homing
 
-<<<<<<< HEAD
 /**
  * Homing Procedure
  * Homing (G28) does an indefinite move towards the endstops to establish
@@ -1025,7 +1024,7 @@
 
   // Actual motor currents in Amps. The number of entries must match DIGIPOT_I2C_NUM_CHANNELS.
   // These correspond to the physical drivers, so be mindful if the order is changed.
-  #define DIGIPOT_I2C_MOTOR_CURRENTS { 1, 1, 0.9, 1, 1 }  //  MKS SBASE: 5
+  #define DIGIPOT_I2C_MOTOR_CURRENTS { 1, 1, 0.9, 0.9, 0.9 }  //  MKS SBASE: 5
 
   //#define DIGIPOT_USE_RAW_VALUES    // Use DIGIPOT_MOTOR_CURRENT raw wiper values (instead of A4988 motor currents)
 
@@ -2020,7 +2019,7 @@
  */
 #if HAS_MULTI_EXTRUDER
   // Z raise distance for tool-change, as needed for some extruders
-  #define TOOLCHANGE_ZRAISE                 2 // (mm)
+  #define TOOLCHANGE_ZRAISE                 0 // (mm)
   //#define TOOLCHANGE_ZRAISE_BEFORE_RETRACT  // Apply raise before swap retraction (if enabled)
   //#define TOOLCHANGE_NO_RETURN              // Never return to previous position on tool-change
   #if ENABLED(TOOLCHANGE_NO_RETURN)
