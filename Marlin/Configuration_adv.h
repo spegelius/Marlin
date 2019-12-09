@@ -1707,7 +1707,7 @@
   //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
   #define MESH_MIN_X 65
   #define MESH_MAX_X 250
-  #define MESH_MIN_Y 85
+  #define MESH_MIN_Y 89
   #define MESH_MAX_Y 275
 #endif
 
@@ -1879,7 +1879,6 @@
  * Override the default value based on the driver type set in Configuration.h.
  */
 //#define MAXIMUM_STEPPER_RATE 250000
-//#define MAXIMUM_STEPPER_RATE 100000
 
 // @section temperature
 
