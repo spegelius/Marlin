@@ -743,7 +743,8 @@
  */
  //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.5, 80.2, 1066.67, 144.8 }
  //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 161, 80.2, 1066.67, 144.8 }
- #define DEFAULT_AXIS_STEPS_PER_UNIT   { 161, 161, 2*1066.67, 661 }
+ //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 161, 161, 2*1066.67, 330 }
+ #define DEFAULT_AXIS_STEPS_PER_UNIT   { 161, 161, 2*1066.67, 209 }
  //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 161, 80.2, 1066.67, 289.6 }
 
 /**
@@ -799,13 +800,13 @@
 
   //#define TRAVEL_EXTRA_XYJERK 0.0     // Additional jerk allowance for all travel moves
 
-  //#define LIMITED_JERK_EDITING        // Limit edit via M205 or LCD to DEFAULT_aJERK * 2
+  #define LIMITED_JERK_EDITING        // Limit edit via M205 or LCD to DEFAULT_aJERK * 2
   #if ENABLED(LIMITED_JERK_EDITING)
     #define MAX_JERK_EDIT_VALUES { 20, 20, 0.6, 10 } // ...or, set your own edit limits
   #endif
 #endif
 
-#define DEFAULT_EJERK    5.0  // May be used by Linear Advance
+#define DEFAULT_EJERK    8.0  // May be used by Linear Advance
 
 /**
  * Junction Deviation Factor
