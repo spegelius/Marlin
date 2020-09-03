@@ -54,8 +54,8 @@
 //
 // Limit Switches - Not Interrupt Capable
 //
-#define X_MIN_PIN                          P1_24  // 10k pullup to 3.3V, 1K series
-#define X_MAX_PIN                          P1_25  // 10k pullup to 3.3V, 1K series
+#define X_MIN_PIN                          P1_25  // 10k pullup to 3.3V, 1K series
+#define X_MAX_PIN                          P1_24  // 10k pullup to 3.3V, 1K series
 #define Y_MIN_PIN                          P1_26  // 10k pullup to 3.3V, 1K series
 #define Y_MAX_PIN                          P1_27  // 10k pullup to 3.3V, 1K series
 #define Z_MIN_PIN                          P1_28  // The original Mks Sbase DIO19 has a 10k pullup to 3.3V or 5V, 1K series, so when using a Zprobe we must use DIO41 (J8 P1.22)
