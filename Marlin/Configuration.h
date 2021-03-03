@@ -507,12 +507,13 @@
     //#define  DEFAULT_Kp 30.35
     //#define  DEFAULT_Ki 2.81
     //#define  DEFAULT_Kd 82.05
-    //#endif
 
     // Volcano
     #define DEFAULT_Kp 22.31
     #define DEFAULT_Ki 1.68
     #define DEFAULT_Kd 73.95
+    
+    #endif
 
 #endif // PIDTEMP
 
