@@ -504,14 +504,14 @@
     //#define DEFAULT_Kd 114.00
 
     // E3Dv6
-    //#define  DEFAULT_Kp 30.35
-    //#define  DEFAULT_Ki 2.81
-    //#define  DEFAULT_Kd 82.05
+    #define DEFAULT_Kp 26.40
+    #define DEFAULT_Ki 2.36
+    #define DEFAULT_Kd 73.87
 
     // Volcano
-    #define DEFAULT_Kp 22.31
-    #define DEFAULT_Ki 1.68
-    #define DEFAULT_Kd 73.95
+    //#define DEFAULT_Kp 22.31
+    //#define DEFAULT_Ki 1.68
+    //#define DEFAULT_Kd 73.95
     
     #endif
 
