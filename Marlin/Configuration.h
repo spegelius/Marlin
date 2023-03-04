@@ -599,14 +599,20 @@
   #if ENABLED(PID_PARAMS_PER_HOTEND)
     // Specify up to one value per hotend here, according to your setup.
     // If there are fewer values, the last one applies to the remaining hotends.
-    #define DEFAULT_Kp_LIST {  22.20,  22.20 }
-    #define DEFAULT_Ki_LIST {   1.08,   1.08 }
-    #define DEFAULT_Kd_LIST { 114.00, 114.00 }
+    #define DEFAULT_Kp_LIST {  20.91,  20.91 }
+    #define DEFAULT_Ki_LIST {   1.59,   1.59 }
+    #define DEFAULT_Kd_LIST { 68.97, 68.97 }
   #else
     // Creality CR-10S S5 Stock MK8 w/BRASS
-    #define  DEFAULT_Kp 20.91
-    #define  DEFAULT_Ki 1.59
-    #define  DEFAULT_Kd 68.97
+    //#define  DEFAULT_Kp 20.91
+    //#define  DEFAULT_Ki 1.59
+    //#define  DEFAULT_Kd 68.97
+
+    // E3D Volcano
+    #define  DEFAULT_Kp 16.1277
+    #define  DEFAULT_Ki 1.2078
+    #define  DEFAULT_Kd 53.8383
+
   #endif
 #endif // PIDTEMP
 
@@ -939,11 +945,11 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 500, 500, 13, 80 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
-  #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 10, 50 } // ...or, set your own edit limits
+  #define MAX_FEEDRATE_EDIT_VALUES    { 500, 500, 13, 120 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -952,7 +958,7 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 300, 300, 100, 5000 }
+#define DEFAULT_MAX_ACCELERATION      { 500, 500, 100, 8000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -967,9 +973,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION           575    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION   575   // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_ACCELERATION           500    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_RETRACT_ACCELERATION   1200   // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION   1500    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
